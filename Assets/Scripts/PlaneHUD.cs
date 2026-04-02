@@ -71,7 +71,7 @@ public class PlaneHUD : MonoBehaviour {
         var velocity = planeTransform.forward;
 
         if (plane.LocalVelocity.sqrMagnitude > 1) {
-            velocity = plane.Rigidbody.velocity;
+            velocity = plane.Rigidbody.linearVelocity;
         }
 
         var hudPos = TransformToHUDSpace(plane.Rigidbody.position + velocity * hudFocusDistance);

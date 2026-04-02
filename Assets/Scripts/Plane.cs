@@ -70,7 +70,7 @@ public class Plane : MonoBehaviour {
     [SerializeField]
     List<Collider> landingGear;
     [SerializeField]
-    PhysicMaterial landingGearBrakesMaterial;
+    PhysicsMaterial landingGearBrakesMaterial;
     [SerializeField]
     List<GameObject> graphics;
     [SerializeField]
@@ -80,7 +80,7 @@ public class Plane : MonoBehaviour {
     Vector3 controlInput;
 
     Vector3 lastVelocity;
-    PhysicMaterial landingGearDefaultMaterial;
+    PhysicsMaterial landingGearDefaultMaterial;
 
     public float MaxHealth {
         get {
@@ -217,7 +217,7 @@ public class Plane : MonoBehaviour {
 
     void CalculateState(float dt) {
         var invRotation = Quaternion.Inverse(Rigidbody.rotation);
-        Velocity = Rigidbody.velocity;
+        Velocity = Rigidbody.linearVelocity;
         LocalVelocity = invRotation * Velocity;  //transform world velocity into local space
         LocalAngularVelocity = invRotation * Rigidbody.angularVelocity;  //transform into local space
 
